@@ -1,1 +1,1 @@
-from .debug_trace import debug 
+from .debug_trace import debug, pvar

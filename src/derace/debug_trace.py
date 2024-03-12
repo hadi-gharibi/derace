@@ -4,6 +4,7 @@ import pdb
 import sys
 import traceback
 from colorama import Fore, Style
+import inspect
 
 
 def debug(func):
@@ -23,3 +24,8 @@ def debug(func):
             print(f"Stack trace:")
             pdb.post_mortem(exc_traceback)
     return wrapper
+
+
+def pvar(var):
+    name = [name for name, value in inspect.currentframe().f_back.f_locals.items() if value is var][0]
+    print(f"{name} = {var}")
